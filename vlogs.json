@@ -1,0 +1,31 @@
+{
+  "videos": [
+    {
+      "id": "v1",
+      "title": "Exclusive Interview: Peace Process Developments",
+      "description": "In-depth conversation with diplomatic sources about ongoing negotiations and next steps.",
+      "category": "Interview",
+      "duration": "15:32",
+      "date": "2025-12-10",
+      "youtubeId": "dQw4w9WgXcQ"
+    },
+    {
+      "id": "v2",
+      "title": "Ground Report: Community Resilience Stories",
+      "description": "Documenting how local communities are adapting and supporting each other.",
+      "category": "Documentary",
+      "duration": "12:45",
+      "date": "2025-12-08",
+      "youtubeId": "dQw4w9WgXcQ"
+    },
+    {
+      "id": "v3",
+      "title": "Analysis: Human Rights Legal Framework",
+      "description": "Expert breakdown of key legal mechanisms and obligations.",
+      "category": "Analysis",
+      "duration": "18:20",
+      "date": "2025-12-05",
+      "youtubeId": "dQw4w9WgXcQ"
+    }
+  ]
+}

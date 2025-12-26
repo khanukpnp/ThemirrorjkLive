@@ -1,0 +1,73 @@
+{
+  "items": [
+    {
+      "id": "a1",
+      "section": "latest",
+      "category": "Politics",
+      "readTime": "5 min read",
+      "title": "Kashmir Peace Process: New Hope for Dialogue",
+      "summary": "International mediators express optimism about recent developments in the Kashmir peace process, with both sides showing willingness to engage.",
+      "author": "Sarah Ahmad Khan",
+      "date": "2025-01-15",
+      "image": "assets/sample-1.jpg"
+    },
+    {
+      "id": "a2",
+      "section": "latest",
+      "category": "Human Rights",
+      "readTime": "8 min read",
+      "title": "UN Human Rights Report: Urgent Action Needed",
+      "summary": "Latest UN Human Rights Council report highlights critical issues in conflict zones, calling for immediate international intervention and monitoring.",
+      "author": "Dr. Ahmed Hassan",
+      "date": "2025-01-14",
+      "image": "assets/sample-2.jpg"
+    },
+    {
+      "id": "a3",
+      "section": "latest",
+      "category": "Education",
+      "readTime": "6 min read",
+      "title": "Educational Reform Initiative Launched in Remote Areas",
+      "summary": "New educational programs aim to provide quality education to children in remote mountain villages, focusing on both traditional and modern skills.",
+      "author": "Fatima Sheikh",
+      "date": "2025-01-13",
+      "image": "assets/sample-3.jpg"
+    },
+    {
+      "id": "i1",
+      "section": "international",
+      "title": "UN Security Council Addresses Regional Conflicts",
+      "summary": "Emergency session discusses peaceful resolution mechanisms for disputed territories worldwide.",
+      "author": "International Desk",
+      "date": "2025-12-12",
+      "image": "assets/sample-2.jpg"
+    },
+    {
+      "id": "i2",
+      "section": "international",
+      "title": "European Parliament Calls for Press Freedom",
+      "summary": "Resolution passed supporting independent journalism in conflict zones.",
+      "author": "Brussels Correspondent",
+      "date": "2025-12-12",
+      "image": "assets/sample-1.jpg"
+    },
+    {
+      "id": "h1",
+      "section": "humanrights",
+      "title": "Humanitarian Organizations Launch Aid Initiative",
+      "summary": "International relief efforts focus on providing essential services to affected communities.",
+      "author": "Human Rights Desk",
+      "date": "2025-12-12",
+      "image": "assets/sample-3.jpg"
+    },
+    {
+      "id": "h2",
+      "section": "humanrights",
+      "title": "Legal Advocacy Groups File Petition",
+      "summary": "Human rights lawyers present case for civilian protection measures.",
+      "author": "Legal Correspondent",
+      "date": "2025-12-12",
+      "image": "assets/sample-2.jpg"
+    }
+  ]
+}
