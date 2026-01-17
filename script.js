@@ -1,195 +1,350 @@
-// =======================
-// SAFE SELECTORS
-// =======================
-const $ = (sel, ctx = document) => ctx.querySelector(sel);
-const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="./" />
+  <title>THE MIRROR JAMMU KASHMIR</title>
+  <meta name="description" content="The Mirror Jammu Kashmir — Champion justice & amplify the voices of the unheard." />
+  <link rel="preconnect" href="https://api.open-meteo.com">
+  <link rel="stylesheet" href="styles.css?v=4" />
+</head>
+<body class="theme-maroon">
+  <header class="site-header">
+    <div class="header-row">
+      <img src="assets/logo.png" alt="Logo" class="logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='logo.png';" />
+      <h1 class="site-title">THE MIRROR JAMMU KASHMIR</h1>
+      <img src="assets/logo.png" alt="Logo" class="logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='logo.png';" />
+    </div>
+    <div class="subheading">CHAMPION JUSTICE &amp; AMPLIFY THE VOICES OF THE UNHEARD… REVEALING THE TRUTH BEYOND BORDERS</div>
+  </header>
 
-// =======================
-// DOM READY
-// =======================
-document.addEventListener("DOMContentLoaded", () => {
+  <section class="bar clocks-line" aria-label="Clocks and Calendars">
+    <div class="row tight nowrap">
+      <div id="clock-cest" class="chip tiny">🕒 <span>Loading CEST…</span></div>
+      <div id="cal-hijri" class="chip tiny">📅 <span>Hijri…</span></div>
+      <div id="cal-hindi" class="chip tiny">📅 <span>VS…</span></div>
+      <div id="tz-ist" class="chip tiny">🕒 IST (JKL): <span>—:—</span></div>
+      <div id="tz-pkt" class="chip tiny">🕒 PKT (GBM): <span>—:—</span></div>
+    </div>
+  </section>
 
-  // =======================
-  // FOOTER YEAR
-  // =======================
-  const yearEl = $("#year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  <section class="bar weather-line" aria-label="Weather">
+    <div class="row nowrap super-tight" id="weather-bar"></div>
+  </section>
 
-  // =======================
-  // CLOCKS & CALENDARS
-  // =======================
-  function updateTimes() {
-    const now = new Date();
+  <section class="ticker-wrap" aria-label="Breaking Ticker">
+    <div class="ticker">
+      <span>BREAKING:</span>
+      <ul id="ticker-items">
+        <li>Welcome to The Mirror Jammu Kashmir — empowering truth beyond borders.</li>
+        <li>Submit your editorials and vlogs via the contact form below.</li>
+        <li>Multilingual support &amp; mobile-first design are built-in.</li>
+      </ul>
+    </div>
+    <div class="tools">
+      <label class="lang-select">
+        🌍
+        <select id="language-select" aria-label="Select language">
+          <option value="en" selected>English</option>
+          <option value="de">German</option>
+          <option value="fr">French</option>
+          <option value="ru">Russian</option>
+          <option value="he">Hebrew</option>
+          <option value="ur">Urdu</option>
+          <option value="hi">Hindi</option>
+          <option value="ar">Arabic</option>
+          <option value="es">Spanish</option>
+          <option value="it">Italian</option>
+          <option value="nl">Dutch</option>
+        </select>
+      </label>
+      <form class="search" role="search" onsubmit="event.preventDefault(); fakeSearch();">
+        <input id="search-input" type="search" placeholder="Search…" aria-label="Search" />
+        <button type="submit">🔍</button>
+      </form>
+    </div>
+  </section>
 
-    try {
-      const cest = new Intl.DateTimeFormat("en-GB", {
-        weekday: "long",
-        day: "2-digit",
-        month: "long",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false,
-        timeZone: "Europe/Zurich"
-      }).format(now);
+  <nav class="navbar" aria-label="Primary Navigation">
+    <button class="hamburger" aria-expanded="false" aria-controls="mobile-menu" id="hamburger">☰ Menu</button>
+    <ul class="nav-list" id="nav-list">
+      <li class="nav-item has-sub">
+        <button class="nav-btn">🏠 Home</button>
+        <div class="dropdown">
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#chief-editor">Chief Editor</a>
+        </div>
+      </li>
+      <li class="nav-item"><a class="nav-btn" href="#breaking">🆕 Breaking News</a></li>
+      <li class="nav-item has-sub">
+        <button class="nav-btn">📝 Blog</button>
+        <div class="dropdown wide">
+          <a href="#editorial">Editorial</a>
+          <a href="#opinion">Opinion</a>
+          <a href="#updates">Latest Updates</a>
+        </div>
+      </li>
+      <li class="nav-item has-sub">
+        <button class="nav-btn">🎥 Vlog</button>
+        <div class="dropdown">
+          <a href="#vlog-latest">Latest Vlogs</a>
+          <a href="#vlog-archive">Archive</a>
+        </div>
+      </li>
+      <li class="nav-item"><a class="nav-btn" href="#epaper">📰 E-Paper</a></li>
+      <li class="nav-item has-sub">
+        <button class="nav-btn">📍 Jammu Kashmir</button>
+        <div class="dropdown wide">
+          <a href="#jk-region">Regions</a>
+          <a href="#jk-history">History</a>
+          <a href="#jk-culture">Culture</a>
+        </div>
+      </li>
+      <li class="nav-item has-sub">
+        <button class="nav-btn">📜 Historical Documents</button>
+        <div class="dropdown wide">
+          <a href="#docs-treaties">Treaties</a>
+          <a href="#docs-archives">Archives</a>
+          <a href="#docs-letters">Letters</a>
+        </div>
+      </li>
+      <li class="nav-item has-sub">
+        <button class="nav-btn">🕊️ UN &amp; Human Rights</button>
+        <div class="dropdown">
+          <a href="#unhrc">UNHRC</a>
+          <a href="#reports">Reports</a>
+          <a href="#advocacy">Advocacy</a>
+        </div>
+      </li>
+      <li class="nav-item has-sub">
+        <button class="nav-btn">🌐 Global Advocacy</button>
+        <div class="dropdown wide">
+          <a href="#campaigns">Campaigns</a>
+          <a href="#partners">Partners</a>
+          <a href="#get-involved">Get Involved</a>
+        </div>
+      </li>
+    </ul>
+    <div id="mobile-menu" class="mobile-menu" hidden></div>
+  </nav>
 
-      const el = $("#clock-cest span");
-      if (el) el.textContent = cest.replace(",", " —");
-    } catch {}
+  <main class="main">
+    <section id="blog" class="card-col">
+      <h2>📝 Latest Articles</h2>
+      <div class="cards three">
+        <article class="card post">
+          <div class="media">
+            <span class="badge cat">Politics</span>
+            <span class="badge time">5 min read</span>
+            <img src="assets/sample-1.jpg" alt="Kashmir mountains" loading="lazy" decoding="async" data-placeholder="Editorial Placeholder" data-accent="maroon" />
+          </div>
+          <div class="card-body">
+            <h3>Kashmir Peace Process: New Hope for Dialogue</h3>
+            <p>International mediators express optimism about recent developments in the Kashmir peace process, with both sides showing willingness to engage.</p>
+            <div class="meta">
+              <span class="author">Sarah Ahmad Khan</span>
+              <span class="date">2025-01-15</span>
+            </div>
+            <a class="read-more" href="#">Read More →</a>
+          </div>
+        </article>
+        <article class="card post">
+          <div class="media">
+            <span class="badge cat">Human Rights</span>
+            <span class="badge time">8 min read</span>
+            <img src="assets/sample-2.jpg" alt="UN assembly" loading="lazy" decoding="async" data-placeholder="Opinion Placeholder" data-accent="blue" />
+          </div>
+          <div class="card-body">
+            <h3>UN Human Rights Report: Urgent Action Needed</h3>
+            <p>Latest UN Human Rights Council report highlights critical issues in conflict zones, calling for immediate international intervention and monitoring.</p>
+            <div class="meta">
+              <span class="author">Dr. Ahmed Hassan</span>
+              <span class="date">2025-01-14</span>
+            </div>
+            <a class="read-more" href="#">Read More →</a>
+          </div>
+        </article>
+        <article class="card post">
+          <div class="media">
+            <span class="badge cat">Education</span>
+            <span class="badge time">6 min read</span>
+            <img src="assets/sample-3.jpg" alt="Classroom" loading="lazy" decoding="async" data-placeholder="Update Placeholder" data-accent="green" />
+          </div>
+          <div class="card-body">
+            <h3>Educational Reform Initiative Launched in Remote Areas</h3>
+            <p>New educational programs aim to provide quality education to children in remote mountain villages, focusing on both traditional and modern skills.</p>
+            <div class="meta">
+              <span class="author">Fatima Sheikh</span>
+              <span class="date">2025-01-13</span>
+            </div>
+            <a class="read-more" href="#">Read More →</a>
+          </div>
+        </article>
+      </div>
+    </section>
 
-    try {
-      const hijri = new Intl.DateTimeFormat("en-u-ca-islamic", {
-        day: "numeric",
-        month: "long",
-        year: "numeric"
-      }).format(now);
+    <section id="vlog" class="vlogs card">
+      <div class="vlogs-header">
+        <h2>Video Reports &amp; Vlogs</h2>
+        <a class="btn yt" href="https://youtube.com" target="_blank" rel="noopener">Visit Channel ▶</a>
+      </div>
+      <p class="vlogs-sub">Watch in-depth reports, exclusive interviews, and documentary-style content.</p>
+      <div class="filter-pills">
+        <button class="pill active">All</button>
+        <button class="pill">Interview</button>
+        <button class="pill">Documentary</button>
+        <button class="pill">Analysis</button>
+        <button class="pill">Culture</button>
+        <button class="pill">Forum</button>
+        <button class="pill">Feature</button>
+      </div>
+      <div class="cards three media-cards">
+        <article class="card video">
+          <div class="media">
+            <span class="badge cat">Interview</span>
+            <span class="badge duration">15:32</span>
+            <img src="assets/sample-1.jpg" alt="Interview" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/placeholder.svg';" />
+          </div>
+          <div class="card-body">
+            <h3>Exclusive Interview: Peace Process Developments</h3>
+            <p>In-depth conversation with diplomatic sources about ongoing negotiations and next steps.</p>
+          </div>
+        </article>
+        <article class="card video">
+          <div class="media">
+            <span class="badge cat">Documentary</span>
+            <span class="badge duration">12:45</span>
+            <img src="assets/sample-2.jpg" alt="Documentary" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/placeholder.svg';" />
+          </div>
+          <div class="card-body">
+            <h3>Ground Report: Community Resilience Stories</h3>
+            <p>Documenting how local communities are adapting and supporting each other.</p>
+          </div>
+        </article>
+        <article class="card video">
+          <div class="media">
+            <span class="badge cat">Analysis</span>
+            <span class="badge duration">18:20</span>
+            <img src="assets/sample-3.jpg" alt="Analysis" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/placeholder.svg';" />
+          </div>
+          <div class="card-body">
+            <h3>Analysis: Human Rights Legal Framework</h3>
+            <p>Expert breakdown of key legal mechanisms and obligations.</p>
+          </div>
+        </article>
+      </div>
+      <div class="center"><button class="btn load">Load More Videos</button></div>
+    </section>
 
-      const el = $("#cal-hijri span");
-      if (el) el.textContent = hijri + " AH";
-    } catch {}
+    <section class="section-rail">
+      <div class="rail-header"><span>🌐 International News</span></div>
+      <div class="cards two">
+        <article class="card rail">
+          <div class="media"><img src="assets/sample-2.jpg" alt="UNSC" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/placeholder.svg';" /></div>
+          <div class="card-body">
+            <h3>UN Security Council Addresses Regional Conflicts</h3>
+            <p>Emergency session discusses peaceful resolution mechanisms for disputed territories worldwide.</p>
+            <div class="meta"><span class="author">International Desk</span><span class="date">1 hour ago</span></div>
+            <a class="read-more" href="#">Read More →</a>
+          </div>
+        </article>
+        <article class="card rail">
+          <div class="media"><img src="assets/sample-1.jpg" alt="EU Parliament" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/placeholder.svg';" /></div>
+          <div class="card-body">
+            <h3>European Parliament Calls for Press Freedom</h3>
+            <p>Resolution passed supporting independent journalism in conflict zones.</p>
+            <div class="meta"><span class="author">Brussels Correspondent</span><span class="date">6 hours ago</span></div>
+            <a class="read-more" href="#">Read More →</a>
+          </div>
+        </article>
+      </div>
+      <div class="center"><a class="btn outline" href="#">View All International News</a></div>
+    </section>
 
-    try {
-      const gYear = now.getFullYear();
-      const vsYear = now.getMonth() >= 3 ? gYear + 57 : gYear + 56;
-      const el = $("#cal-hindi span");
-      if (el) el.textContent = "VS " + vsYear;
-    } catch {}
+    <section class="section-rail">
+      <div class="rail-header"><span>🧑‍⚕️ Human Rights</span></div>
+      <div class="cards two">
+        <article class="card rail">
+          <div class="media"><img src="assets/sample-3.jpg" alt="Aid" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/placeholder.svg';" /></div>
+          <div class="card-body">
+            <h3>Humanitarian Organizations Launch Aid Initiative</h3>
+            <p>International relief efforts focus on providing essential services to affected communities.</p>
+            <div class="meta"><span class="author">Human Rights Desk</span><span class="date">3 hours ago</span></div>
+            <a class="read-more" href="#">Read More →</a>
+          </div>
+        </article>
+        <article class="card rail">
+          <div class="media"><img src="assets/sample-2.jpg" alt="Legal" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/placeholder.svg';" /></div>
+          <div class="card-body">
+            <h3>Legal Advocacy Groups File Petition</h3>
+            <p>Human rights lawyers present case for civilian protection measures.</p>
+            <div class="meta"><span class="author">Legal Correspondent</span><span class="date">5 hours ago</span></div>
+            <a class="read-more" href="#">Read More →</a>
+          </div>
+        </article>
+      </div>
+      <div class="center"><a class="btn outline" href="#">View All Human Rights</a></div>
+    </section>
 
-    const tz = (id, zone) => {
-      const el = $(id + " span");
-      if (!el) return;
-      el.textContent = new Intl.DateTimeFormat("en-GB", {
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false,
-        timeZone: zone
-      }).format(now);
-    };
+    <section id="epaper" class="epaper card">
+      <h2>📰 E-Paper Upload</h2>
+      <p>Upload your digital publication (PDF). This section is a placeholder; connect to your preferred CMS or cloud later.</p>
+      <form name="epaper" method="POST" data-netlify="true">
+        <input type="file" name="file" accept=".pdf" />
+        <button class="btn" type="submit">Upload</button>
+      </form>
+    </section>
 
-    tz("#tz-ist", "Asia/Kolkata");
-    tz("#tz-pkt", "Asia/Karachi");
-  }
+    <section id="contact" class="contact-wrap">
+      <div class="newsletter card">
+        <h2>📬 Newsletter</h2>
+        <form name="newsletter" method="POST" data-netlify="true">
+          <input type="email" name="email" placeholder="your@email.com" required />
+          <button class="btn" type="submit">Subscribe</button>
+        </form>
+      </div>
+      <div class="contact card">
+        <h2>✉️ Contact</h2>
+        <p>Email: <a href="mailto:contact@themirrorjk.com">contact@themirrorjk.com</a> • Phone: <a href="tel:+41783131213">+41 783 13 12 13</a></p>
+        <button class="btn" id="open-contact">Open Contact Form</button>
+      </div>
+    </section>
+  </main>
 
-  updateTimes();
-  setInterval(updateTimes, 1000);
+  <footer class="footer">
+    <div class="social">
+      <a href="#" aria-label="Twitter">𝕏</a>
+      <a href="#" aria-label="Instagram">📸</a>
+      <a href="#" aria-label="YouTube">▶️</a>
+      <a href="#" aria-label="Facebook">📘</a>
+      <button class="btn small outline" id="share-btn">Share</button>
+    </div>
+    <p>© <span id="year"></span> THE MIRROR JAMMU KASHMIR. All rights reserved. <a href="/admin/" class="admin-link">Admin</a></p>
+  </footer>
 
-  // =======================
-  // NAVIGATION DROPDOWNS
-  // =======================
-  $$(".nav-item.has-sub > .nav-btn").forEach(btn => {
-    btn.addEventListener("click", e => {
-      e.stopPropagation();
-      const li = btn.closest(".nav-item");
-      $$(".nav-item.open").forEach(n => n !== li && n.classList.remove("open"));
-      li.classList.toggle("open");
-    });
-  });
+  <dialog id="contact-modal" class="modal">
+    <form name="contact" method="POST" data-netlify="true" class="modal-card">
+      <h3>Contact Form</h3>
+      <label> Name <input type="text" name="name" required /></label>
+      <label> Email <input type="email" name="email" required /></label>
+      <label> Message <textarea name="message" rows="4" required></textarea></label>
+      <div class="modal-actions">
+        <button type="submit" class="btn">Submit</button>
+        <button type="button" class="btn outline" id="close-contact">Exit</button>
+      </div>
+    </form>
+  </dialog>
 
-  document.addEventListener("click", () => {
-    $$(".nav-item.open").forEach(n => n.classList.remove("open"));
-  });
+  <nav class="mobile-sticky">
+    <a href="#top" aria-label="Home">🏠</a>
+    <button id="sticky-search" aria-label="Search">🔍</button>
+    <button id="sticky-like" aria-label="Like">❤️</button>
+    <button id="sticky-share" aria-label="Share">🔗</button>
+    <button id="sticky-menu" aria-label="Menu">☰</button>
+  </nav>
 
-  // =======================
-  // MOBILE MENU
-  // =======================
-  const hamburger = $("#hamburger");
-  const mobileMenu = $("#mobile-menu");
-
-  if (hamburger && mobileMenu) {
-    hamburger.addEventListener("click", () => {
-      const open = hamburger.getAttribute("aria-expanded") === "true";
-      hamburger.setAttribute("aria-expanded", String(!open));
-
-      if (!open) {
-        mobileMenu.innerHTML = "";
-        const clone = $("#nav-list")?.cloneNode(true);
-        if (clone) {
-          clone.id = "nav-list-mobile";
-          clone.querySelectorAll(".dropdown").forEach(d => d.remove());
-          mobileMenu.appendChild(clone);
-        }
-        mobileMenu.hidden = false;
-      } else {
-        mobileMenu.hidden = true;
-      }
-    });
-  }
-
-  // =======================
-  // WEATHER BAR
-  // =======================
-  const cities = [
-    ["Zurich", 47.3769, 8.5417],
-    ["Jammu", 32.7266, 74.857],
-    ["Kashmir", 34.0837, 74.7973],
-    ["Ladakh", 34.1526, 77.5771],
-    ["Gilgit", 35.9208, 74.308],
-    ["Baltistan", 35.3025, 75.636],
-    ["Muzaffarabad", 34.37, 73.47],
-    ["Rawalakot", 33.8578, 73.7604]
-  ];
-
-  const weatherBar = $("#weather-bar");
-
-  async function loadWeather() {
-    if (!weatherBar) return;
-    weatherBar.innerHTML = "";
-
-    for (const [name, lat, lon] of cities) {
-      try {
-        const res = await fetch(
-          `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`
-        );
-        const data = await res.json();
-        const t = data?.current_weather?.temperature ?? "—";
-        const div = document.createElement("div");
-        div.className = "city";
-        div.innerHTML = `<span>${name}:</span> <strong>${t}°C</strong>`;
-        weatherBar.appendChild(div);
-      } catch {
-        const div = document.createElement("div");
-        div.className = "city";
-        div.textContent = name + ": —";
-        weatherBar.appendChild(div);
-      }
-    }
-  }
-
-  loadWeather();
-
-  // =======================
-  // TICKER
-  // =======================
-  const tickerItems = $("#ticker-items");
-  if (tickerItems && tickerItems.children.length) {
-    tickerItems.innerHTML += tickerItems.innerHTML;
-  }
-
-  // =======================
-  // CONTACT MODAL
-  // =======================
-  const dlg = $("#contact-modal");
-  $("#open-contact")?.addEventListener("click", () => dlg?.showModal());
-  $("#close-contact")?.addEventListener("click", () => dlg?.close());
-
-  // =======================
-  // SHARE & STICKY BAR
-  // =======================
-  function tryShare() {
-    if (navigator.share) {
-      navigator.share({ title: document.title, url: location.href });
-    } else {
-      navigator.clipboard?.writeText(location.href);
-      alert("Link copied");
-    }
-  }
-
-  $("#share-btn")?.addEventListener("click", tryShare);
-  $("#sticky-share")?.addEventListener("click", tryShare);
-  $("#sticky-like")?.addEventListener("click", () => alert("Thanks ❤️"));
-  $("#sticky-menu")?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-  $("#sticky-search")?.addEventListener("click", () => $("#search-input")?.focus());
-
-});
+  <script src="script.js?v=4"></script>
+</body>
+</html>
