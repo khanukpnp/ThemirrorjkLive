@@ -9,15 +9,63 @@
   <link rel="preconnect" href="https://api.open-meteo.com">
   <link rel="stylesheet" href="styles.css?v=4" />
 </head>
+
 <body class="theme-maroon">
+
+<header class="site-header">
+  <div class="header-row">
+    <img src="assets/logo.png" alt="Logo" class="logo" />
+    <h1 class="site-title">THE MIRROR JAMMU KASHMIR</h1>
+    <img src="assets/logo.png" alt="Logo" class="logo" />
+  </div>
+  <div class="subheading">
+    CHAMPION JUSTICE &amp; AMPLIFY THE VOICES OF THE UNHEARD… REVEALING THE TRUTH BEYOND BORDERS
+  </div>
+</header>
+
+<section class="bar clocks-line">
+  <div class="row tight nowrap">
+    <div id="clock-cest" class="chip tiny">🕒 <span>Loading CEST…</span></div>
+    <div id="cal-hijri" class="chip tiny">📅 <span>Hijri…</span></div>
+    <div id="cal-hindi" class="chip tiny">📅 <span>VS…</span></div>
+    <div id="tz-ist" class="chip tiny">🕒 IST (JKL): <span>—:—</span></div>
+    <div id="tz-pkt" class="chip tiny">🕒 PKT (GBM): <span>—:—</span></div>
+  </div>
+</section>
+
+<section class="bar weather-line">
+  <div class="row nowrap super-tight" id="weather-bar"></div>
+</section>
+
+<section class="ticker-wrap">
+  <div class="ticker">
+    <span>BREAKING:</span>
+    <ul id="ticker-items">
+      <li>Welcome to The Mirror Jammu Kashmir — empowering truth beyond borders.</li>
+      <li>Submit your editorials and vlogs via the contact form below.</li>
+      <li>Multilingual support &amp; mobile-first design are built-in.</li>
+    </ul>
+  </div>
+</section>
+
+<nav class="navbar">
+  <button class="hamburger" id="hamburger">☰ Menu</button>
+  <ul class="nav-list" id="nav-list">
+    <li class="nav-item"><a class="nav-btn" href="#blog">📝 Blog</a></li>
+    <li class="nav-item"><a class="nav-btn" href="#vlog">🎥 Vlog</a></li>
+    <li class="nav-item"><a class="nav-btn" href="#epaper">📰 E-Paper</a></li>
+    <li class="nav-item"><a class="nav-btn" href="#contact">✉️ Contact</a></li>
+  </ul>
+</nav>
 
 <main class="main">
 
+<!-- INTERNATIONAL NEWS -->
 <section class="section-rail">
-  <div class="rail-header"><span>🌐 International News</span></div>
+  <div class="rail-header">🌐 International News</div>
   <div class="cards two">
 
-    <article class="card rail" data-url="#international-1">
+    <article class="card rail">
       <div class="media">
         <div class="media-placeholder accent-blue">
           <div class="media-placeholder-inner">International<br>News</div>
@@ -30,18 +78,16 @@
           <span>International Desk</span>
           <span>1 hour ago</span>
         </div>
-
         <div class="center">
           <button onclick="shareArticle(this)">🔗 Share</button>
           <button onclick="copyLink(this)">📋 Copy</button>
           <button onclick="likeArticle(this)">❤️ Like</button>
         </div>
-
         <a class="read-more" href="#">Read More →</a>
       </div>
     </article>
 
-    <article class="card rail" data-url="#international-2">
+    <article class="card rail">
       <div class="media">
         <div class="media-placeholder accent-blue">
           <div class="media-placeholder-inner">International<br>News</div>
@@ -54,13 +100,11 @@
           <span>Brussels Correspondent</span>
           <span>6 hours ago</span>
         </div>
-
         <div class="center">
           <button onclick="shareArticle(this)">🔗 Share</button>
           <button onclick="copyLink(this)">📋 Copy</button>
           <button onclick="likeArticle(this)">❤️ Like</button>
         </div>
-
         <a class="read-more" href="#">Read More →</a>
       </div>
     </article>
@@ -68,11 +112,12 @@
   </div>
 </section>
 
+<!-- HUMAN RIGHTS -->
 <section class="section-rail">
-  <div class="rail-header"><span>🧑‍⚕️ Human Rights</span></div>
+  <div class="rail-header">🧑‍⚕️ Human Rights</div>
   <div class="cards two">
 
-    <article class="card rail" data-url="#human-rights-1">
+    <article class="card rail">
       <div class="media">
         <div class="media-placeholder accent-green">
           <div class="media-placeholder-inner">Human<br>Rights</div>
@@ -85,18 +130,16 @@
           <span>Human Rights Desk</span>
           <span>3 hours ago</span>
         </div>
-
         <div class="center">
           <button onclick="shareArticle(this)">🔗 Share</button>
           <button onclick="copyLink(this)">📋 Copy</button>
           <button onclick="likeArticle(this)">❤️ Like</button>
         </div>
-
         <a class="read-more" href="#">Read More →</a>
       </div>
     </article>
 
-    <article class="card rail" data-url="#human-rights-2">
+    <article class="card rail">
       <div class="media">
         <div class="media-placeholder accent-green">
           <div class="media-placeholder-inner">Human<br>Rights</div>
@@ -109,13 +152,11 @@
           <span>Legal Correspondent</span>
           <span>5 hours ago</span>
         </div>
-
         <div class="center">
           <button onclick="shareArticle(this)">🔗 Share</button>
           <button onclick="copyLink(this)">📋 Copy</button>
           <button onclick="likeArticle(this)">❤️ Like</button>
         </div>
-
         <a class="read-more" href="#">Read More →</a>
       </div>
     </article>
@@ -125,26 +166,26 @@
 
 </main>
 
+<footer class="footer">
+  <p>© <span id="year"></span> THE MIRROR JAMMU KASHMIR. All rights reserved.</p>
+</footer>
+
 <script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
 function copyLink(btn){
-  const url = btn.closest("article").dataset.url || window.location.href;
-  navigator.clipboard.writeText(location.origin + "/" + url.replace("#",""));
+  const url = location.href;
+  navigator.clipboard.writeText(url);
   btn.textContent = "✓ Copied";
   setTimeout(()=>btn.textContent="📋 Copy",1200);
 }
-
-function shareArticle(btn){
-  const article = btn.closest("article");
-  const title = article.querySelector("h3").innerText;
-  const url = location.origin + "/" + article.dataset.url.replace("#","");
+function shareArticle(){
   if(navigator.share){
-    navigator.share({ title, url });
+    navigator.share({ title: document.title, url: location.href });
   } else {
-    navigator.clipboard.writeText(url);
-    alert("Link copied");
+    alert("Sharing not supported");
   }
 }
-
 function likeArticle(btn){
   btn.classList.toggle("liked");
   btn.textContent = btn.classList.contains("liked") ? "❤️ Liked" : "❤️ Like";
