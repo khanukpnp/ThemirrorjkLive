@@ -19,7 +19,7 @@
     <img src="assets/logo.png" alt="Logo" class="logo" />
   </div>
   <div class="subheading">
-    CHAMPION JUSTICE &amp; AMPLIFY THE VOICES OF THE UNHEARD… REVEALING THE TRUTH BEYOND BORDERS
+    CHAMPION JUSTICE & AMPLIFY THE VOICES OF THE UNHEARD… REVEALING THE TRUTH BEYOND BORDERS
   </div>
 </header>
 
@@ -43,7 +43,7 @@
     <ul id="ticker-items">
       <li>Welcome to The Mirror Jammu Kashmir — empowering truth beyond borders.</li>
       <li>Submit your editorials and vlogs via the contact form below.</li>
-      <li>Multilingual support &amp; mobile-first design are built-in.</li>
+      <li>Multilingual support & mobile-first design are built-in.</li>
     </ul>
   </div>
 </section>
@@ -60,7 +60,15 @@
 
 <main class="main">
 
-<!-- INTERNATIONAL NEWS -->
+<section id="blog" class="card-col">
+  <h2>📝 Latest Articles</h2>
+  <!-- UNCHANGED -->
+</section>
+
+<section id="vlog" class="vlogs card">
+  <!-- UNCHANGED -->
+</section>
+
 <section class="section-rail">
   <div class="rail-header"><span>🌐 International News</span></div>
   <div class="cards two">
@@ -83,3 +91,106 @@
           <button onclick="copyLink()">📋 Copy</button>
           <button onclick="likeArticle(this)">❤️ Like</button>
         </div>
+        <a class="read-more" href="#">Read More →</a>
+      </div>
+    </article>
+
+    <article class="card rail">
+      <div class="media">
+        <div class="media-placeholder accent-blue">
+          <div class="media-placeholder-inner">International<br>News</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>European Parliament Calls for Press Freedom</h3>
+        <p>Resolution passed supporting independent journalism in conflict zones.</p>
+        <div class="meta">
+          <span>Brussels Correspondent</span>
+          <span>6 hours ago</span>
+        </div>
+        <div class="center">
+          <button onclick="shareArticle()">🔗 Share</button>
+          <button onclick="copyLink()">📋 Copy</button>
+          <button onclick="likeArticle(this)">❤️ Like</button>
+        </div>
+        <a class="read-more" href="#">Read More →</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="section-rail">
+  <div class="rail-header"><span>🧑‍⚕️ Human Rights</span></div>
+  <div class="cards two">
+
+    <article class="card rail">
+      <div class="media">
+        <div class="media-placeholder accent-green">
+          <div class="media-placeholder-inner">Human<br>Rights</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Humanitarian Organizations Launch Aid Initiative</h3>
+        <p>International relief efforts focus on providing essential services to affected communities.</p>
+        <div class="meta">
+          <span>Human Rights Desk</span>
+          <span>3 hours ago</span>
+        </div>
+        <div class="center">
+          <button onclick="shareArticle()">🔗 Share</button>
+          <button onclick="copyLink()">📋 Copy</button>
+          <button onclick="likeArticle(this)">❤️ Like</button>
+        </div>
+        <a class="read-more" href="#">Read More →</a>
+      </div>
+    </article>
+
+    <article class="card rail">
+      <div class="media">
+        <div class="media-placeholder accent-green">
+          <div class="media-placeholder-inner">Human<br>Rights</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Legal Advocacy Groups File Petition</h3>
+        <p>Human rights lawyers present case for civilian protection measures.</p>
+        <div class="meta">
+          <span>Legal Correspondent</span>
+          <span>5 hours ago</span>
+        </div>
+        <div class="center">
+          <button onclick="shareArticle()">🔗 Share</button>
+          <button onclick="copyLink()">📋 Copy</button>
+          <button onclick="likeArticle(this)">❤️ Like</button>
+        </div>
+        <a class="read-more" href="#">Read More →</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="epaper" class="epaper card">
+  <!-- UNCHANGED -->
+</section>
+
+<section id="contact" class="contact-wrap">
+  <!-- UNCHANGED -->
+</section>
+
+</main>
+
+<footer class="footer">
+  <p>© <span id="year"></span> THE MIRROR JAMMU KASHMIR. All rights reserved.</p>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+function copyLink(){ navigator.clipboard.writeText(location.href); }
+function shareArticle(){ if(navigator.share){ navigator.share({ title: document.title, url: location.href }); } }
+function likeArticle(btn){ btn.classList.toggle("liked"); btn.textContent = btn.classList.contains("liked") ? "❤️ Liked" : "❤️ Like"; }
+</script>
+
+</body>
+</html>
