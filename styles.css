@@ -115,3 +115,78 @@ input[type="email"], input[type="text"], textarea, input[type="file"]{ width:100
   border-color: #1f7a4d;
   color: #1f7a4d;
 }
+/* === Action Bar (Share, Like, Copy Link) === */
+.action-bar {
+  display: flex;
+  justify-content: flex-start;
+  gap: 14px;
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid #eee;
+}
+
+.action-bar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.action-bar button:hover {
+  color: var(--maroon);
+}
+
+.action-bar button.liked {
+  color: #e53935; /* active like state */
+}
+
+/* === Inline Images (35% width) === */
+.inline-image {
+  max-width: 35%;
+  height: auto;
+  margin: 6px 12px;
+  border-radius: 12px;
+  float: right;
+  object-fit: cover;
+}
+
+.inline-image.left {
+  float: left;
+}
+
+/* === Placeholder Cards (International News & Human Rights) === */
+.placeholder-card {
+  background: #f7f7f7;
+  border: 2px dashed #ccc;
+  border-radius: 18px;
+  padding: 20px;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--maroon);
+}
+
+/* === Modern Article Page Layout === */
+.article-page {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.article-page h1 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.article-page p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
