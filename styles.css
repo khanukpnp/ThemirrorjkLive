@@ -20,7 +20,7 @@
 .ticker-wrap{ background:var(--maroon); color:#fff; display:flex; align-items:center; gap:8px; padding:8px 10px; position:relative; z-index:40 }
 .ticker{ display:flex; align-items:center; gap:10px; overflow:hidden; flex:1 }
 .ticker > span{ font-weight:800; letter-spacing:.6px }
-.ticker ul{ display:flex; align-items:center; gap:48px; list-style:none; padding:0; margin:0; flex-wrap:nowrap; white-space:nowrap; width:max-content; will-change:transform; animation: ticker-scroll var(--ticker-speed, 45s) linear infinite }
+.ticker ul{ display:flex; align-items:center; gap:48px; list-style:none; padding:0; margin:0; flex-wrap:nowrap; white-space:nowrap; width:max-content; will-change:transform; animation: ticker-scroll var(--ticker-speed, 220s) linear infinite }
 .ticker li{ text-transform:uppercase; font-size:12px; white-space:nowrap; opacity:.95; flex:0 0 auto }
 @keyframes ticker-scroll{ from{ transform:translateX(0)} to{ transform:translateX(-50%)} }
 .tools{ display:flex; align-items:center; gap:8px } .lang-select select, .search input, .search button{ font-size:12px }
@@ -115,3 +115,4 @@ input[type="email"], input[type="text"], textarea, input[type="file"]{ width:100
   border-color: #1f7a4d;
   color: #1f7a4d;
 }
+
