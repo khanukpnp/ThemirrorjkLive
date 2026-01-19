@@ -197,7 +197,11 @@ function renderTicker(items){
   const ul = document.getElementById("ticker-items");
   if(!ul) return;
 
-  // Build list
+  // IMPORTANT: do not override HTML ticker if items already exist
+  if (ul.children.length > 0) {
+    return;
+  }
+
   ul.innerHTML = "";
   (items || []).forEach((t) => {
     const li = document.createElement("li");
@@ -205,17 +209,16 @@ function renderTicker(items){
     ul.appendChild(li);
   });
 
-  // Duplicate content for seamless loop
   if(ul.children.length){
     ul.innerHTML += ul.innerHTML;
   }
 
-  // Measure half width and set CSS variable used by animation
   requestAnimationFrame(() => {
     const half = Math.max(ul.scrollWidth / 2, 1);
     ul.style.setProperty("--ticker-distance", `${half}px`);
   });
 }
+
 
 function renderTopVlogs(videos, channelUrl) {
   const vlogSection = document.getElementById("vlog");
@@ -364,3 +367,4 @@ window.replaceWithPlaceholder = function(imgEl){
     if (imgEl) imgEl.style.display = 'none';
   }
 };
+
