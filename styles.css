@@ -268,3 +268,19 @@ body{
   .cards.three{ grid-template-columns:1fr }
   .logo{ width:56px; height:56px }
 }
+/* Optional visual polish */
+.ticker li {
+  letter-spacing: 0.4px;
+}
+
+.chip {
+  backdrop-filter: blur(2px);
+}
+
+.card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
