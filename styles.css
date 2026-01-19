@@ -259,3 +259,62 @@ body{
   .cards.three{grid-template-columns:1fr}
   .logo{width:56px;height:56px}
 }
+/* ================== HARD FIX: STACKING & FLOW ================== */
+
+/* Ensure header does not cover bars */
+.site-header {
+  position: relative;
+  z-index: 10;
+}
+
+/* Force clocks + weather above header */
+.bar {
+  position: relative;
+  z-index: 20;
+}
+
+/* Isolate ticker animation from layout */
+.ticker-wrap {
+  position: relative;
+  z-index: 30;
+  overflow: hidden;
+}
+
+/* Lock ticker height so text cannot bleed */
+.ticker {
+  height: 22px;
+  line-height: 22px;
+}
+
+/* Prevent animated text from escaping container */
+.ticker ul {
+  align-items: center;
+}
+
+/* Add guaranteed spacing after ticker */
+.ticker-wrap::after {
+  content: "";
+  display: block;
+  height: 8px;
+}
+
+/* Force main content to start below bars */
+.main {
+  position: relative;
+  z-index: 1;
+  margin-top: 16px;
+}
+
+/* Lock media height so placeholders cannot collapse */
+.card .media,
+.media-placeholder {
+  min-height: 220px;
+}
+
+/* Absolute safety: nothing overlaps cards */
+.cards,
+.section-rail {
+  position: relative;
+  z-index: 1;
+}
+
