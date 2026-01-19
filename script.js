@@ -85,9 +85,8 @@ const cities = [
   { key:"ladakh", name:"Ladakh", lat:34.1526, lon:77.5771 },
   { key:"gilgit", name:"Gilgit", lat:35.9208, lon:74.3080 },
   { key:"baltistan", name:"Baltistan", lat:35.3025, lon:75.6360 },
-  { key:"rawalakot", name:"Rawalakot", lat:33.8578, lon:73.7604 }
   { key:"muzaffarabad", name:"Muzaffarabad", lat:34.37, lon:73.47 },
-  
+  { key:"rawalakot", name:"Rawalakot", lat:33.8578, lon:73.7604 }
 ];
 const weatherBar = $("#weather-bar");
 const codeToIcon = (code)=>{
@@ -198,11 +197,7 @@ function renderTicker(items){
   const ul = document.getElementById("ticker-items");
   if(!ul) return;
 
-  // IMPORTANT: do not override HTML ticker if items already exist
-  if (ul.children.length > 0) {
-    return;
-  }
-
+  // Build list
   ul.innerHTML = "";
   (items || []).forEach((t) => {
     const li = document.createElement("li");
@@ -210,16 +205,17 @@ function renderTicker(items){
     ul.appendChild(li);
   });
 
+  // Duplicate content for seamless loop
   if(ul.children.length){
     ul.innerHTML += ul.innerHTML;
   }
 
+  // Measure half width and set CSS variable used by animation
   requestAnimationFrame(() => {
     const half = Math.max(ul.scrollWidth / 2, 1);
     ul.style.setProperty("--ticker-distance", `${half}px`);
   });
 }
-
 
 function renderTopVlogs(videos, channelUrl) {
   const vlogSection = document.getElementById("vlog");
@@ -368,5 +364,3 @@ window.replaceWithPlaceholder = function(imgEl){
     if (imgEl) imgEl.style.display = 'none';
   }
 };
-
-
