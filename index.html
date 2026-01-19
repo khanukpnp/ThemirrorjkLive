@@ -8,6 +8,25 @@
   <meta name="description" content="The Mirror Jammu Kashmir. Champion justice and amplify the voices of the unheard." />
   <link rel="preconnect" href="https://api.open-meteo.com">
   <link rel="stylesheet" href="styles.css?v=4" />
+
+  <style>
+    .placeholder-media {
+      position: relative;
+    }
+    .placeholder-label {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #666;
+      background: rgba(255,255,255,0.85);
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
 </head>
 
 <body class="theme-maroon">
@@ -23,40 +42,6 @@
   </div>
 </header>
 
-<section class="bar clocks-line">
-  <div class="row tight nowrap">
-    <div id="clock-cest" class="chip tiny">🕒 <span>Loading CEST</span></div>
-    <div id="cal-hijri" class="chip tiny">📅 <span>Hijri</span></div>
-    <div id="cal-hindi" class="chip tiny">📅 <span>VS</span></div>
-    <div id="tz-ist" class="chip tiny">🕒 IST <span>--</span></div>
-    <div id="tz-pkt" class="chip tiny">🕒 PKT <span>--</span></div>
-  </div>
-</section>
-
-<section class="ticker-wrap">
-  <div class="ticker">
-    <span>BREAKING:</span>
-    <ul id="ticker-items">
-      <li>Welcome to The Mirror Jammu Kashmir</li>
-      <li>Submit editorials and vlogs via contact form</li>
-      <li>Mobile first multilingual platform</li>
-    </ul>
-  </div>
-</section>
-
-<nav class="navbar">
-  <ul class="nav-list">
-    <li><a class="nav-btn" href="#">🏠 Home</a></li>
-    <li><a class="nav-btn" href="#">🆕 Breaking News</a></li>
-    <li><a class="nav-btn" href="#">📝 Blog</a></li>
-    <li><a class="nav-btn" href="#">🎥 Vlog</a></li>
-    <li><a class="nav-btn" href="#">📰 E-Paper</a></li>
-    <li><a class="nav-btn" href="#">📍 Jammu Kashmir</a></li>
-    <li><a class="nav-btn" href="#">🕊️ UN & Human Rights</a></li>
-    <li><a class="nav-btn" href="#">🌐 Global Advocacy</a></li>
-  </ul>
-</nav>
-
 <main class="main">
 
 <section class="section-rail">
@@ -64,13 +49,14 @@
   <div class="cards two">
 
     <article class="card rail">
-      <div class="media placeholder-box accent-maroon">
-        <span class="placeholder-text">International Placeholder</span>
+      <div class="media placeholder-media">
+        <img src="assets/placeholder.svg" alt="International News Placeholder" />
+        <div class="placeholder-label">International News</div>
         <span class="badge time">5 min read</span>
       </div>
       <div class="card-body">
         <h3>International News Headline Placeholder</h3>
-        <p>Reserved for global political and diplomatic coverage.</p>
+        <p>Global political, diplomatic, and international affairs coverage will appear here.</p>
         <div class="meta">
           <span class="author">International Desk</span>
           <span class="date">—</span>
@@ -80,13 +66,14 @@
     </article>
 
     <article class="card rail">
-      <div class="media placeholder-box accent-blue">
-        <span class="placeholder-text">Global Affairs Placeholder</span>
+      <div class="media placeholder-media">
+        <img src="assets/placeholder.svg" alt="Global Affairs Placeholder" />
+        <div class="placeholder-label">Global Affairs</div>
         <span class="badge time">6 min read</span>
       </div>
       <div class="card-body">
-        <h3>Global Institutions and Press Freedom</h3>
-        <p>Coverage of parliaments, councils, and global decisions.</p>
+        <h3>Global Affairs and Press Freedom</h3>
+        <p>Coverage of parliaments, councils, and global institutions.</p>
         <div class="meta">
           <span class="author">Global Correspondent</span>
           <span class="date">—</span>
@@ -104,13 +91,14 @@
   <div class="cards two">
 
     <article class="card rail">
-      <div class="media placeholder-box accent-red">
-        <span class="placeholder-text">Urgent Appeal Placeholder</span>
+      <div class="media placeholder-media">
+        <img src="assets/placeholder.svg" alt="Urgent Appeal Placeholder" />
+        <div class="placeholder-label">Urgent Appeal</div>
         <span class="badge time">4 min read</span>
       </div>
       <div class="card-body">
-        <h3>Urgent Human Rights Appeal</h3>
-        <p>Emergency alerts, violations, and urgent humanitarian actions.</p>
+        <h3>Urgent Human Rights Appeal Placeholder</h3>
+        <p>Emergency alerts, violations, and humanitarian appeals will be highlighted here.</p>
         <div class="meta">
           <span class="author">Human Rights Desk</span>
           <span class="date">—</span>
@@ -120,13 +108,14 @@
     </article>
 
     <article class="card rail">
-      <div class="media placeholder-box accent-green">
-        <span class="placeholder-text">Legal Advocacy Placeholder</span>
+      <div class="media placeholder-media">
+        <img src="assets/placeholder.svg" alt="Legal Advocacy Placeholder" />
+        <div class="placeholder-label">Legal Advocacy</div>
         <span class="badge time">7 min read</span>
       </div>
       <div class="card-body">
-        <h3>Legal and Advocacy Action</h3>
-        <p>Petitions, UN submissions, and emergency legal updates.</p>
+        <h3>Legal and Advocacy Action Placeholder</h3>
+        <p>Petitions, UN submissions, and urgent legal actions will appear here.</p>
         <div class="meta">
           <span class="author">Advocacy Desk</span>
           <span class="date">—</span>
