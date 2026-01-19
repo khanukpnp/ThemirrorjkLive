@@ -216,3 +216,35 @@ body{
   .cards.three{grid-template-columns:1fr}
   .logo{width:56px;height:56px}
 }
+/* ================= NAVIGATION HARD FIX ================= */
+
+/* Desktop navigation must ALWAYS be horizontal */
+.nav-list {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px;
+}
+
+/* Desktop should NOT show mobile menu */
+.mobile-menu,
+.navbar .hamburger {
+  display: none !important;
+}
+
+/* Mobile rules ONLY apply below breakpoint */
+@media (max-width: 780px) {
+  .nav-list {
+    display: none !important;
+  }
+
+  .navbar .hamburger {
+    display: inline-block !important;
+  }
+
+  .mobile-menu {
+    display: block !important;
+  }
+}
+
