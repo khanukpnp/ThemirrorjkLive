@@ -1,3 +1,4 @@
+/* ================= ROOT ================= */
 :root{
   --maroon:#7a001e;
   --maroon-2:#8a102e;
@@ -20,17 +21,19 @@ body{
 .site-header{
   background:var(--maroon);
   color:#fff;
-  text-align:center;
   padding:18px 8px 12px;
+  text-align:center;
   position:relative;
   z-index:10;
 }
+
 .header-row{
   display:flex;
   align-items:center;
   justify-content:center;
   gap:14px;
 }
+
 .logo{
   width:72px;
   height:72px;
@@ -39,6 +42,7 @@ body{
   background:#ffffff33;
   padding:4px;
 }
+
 .site-title{
   margin:0;
   font-size:clamp(28px,5.8vw,56px);
@@ -46,6 +50,7 @@ body{
   font-weight:700;
   text-transform:uppercase;
 }
+
 .subheading{
   margin-top:6px;
   font-size:clamp(11px,1.6vw,14px);
@@ -60,6 +65,7 @@ body{
   position:relative;
   z-index:20;
 }
+
 .bar .row{
   display:flex;
   align-items:center;
@@ -68,6 +74,7 @@ body{
   padding:6px 8px;
   white-space:nowrap;
 }
+
 .chip{
   background:#f0f2f5;
   border-radius:999px;
@@ -81,13 +88,6 @@ body{
   gap:6px;
   white-space:nowrap;
 }
-#weather-bar .city{
-  background:#fff7f5;
-  border:1px solid #ffe1db;
-  border-radius:999px;
-  padding:4px 8px;
-  font-size:12px;
-}
 
 /* ================= TICKER ================= */
 .ticker-wrap{
@@ -95,23 +95,24 @@ body{
   color:#fff;
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:8px;
   padding:8px 10px;
-  overflow:hidden;
   position:relative;
   z-index:30;
-  min-height:38px;
+  overflow:hidden;
+  min-height:34px;
 }
+
 .ticker{
   display:flex;
   align-items:center;
   gap:10px;
   overflow:hidden;
   flex:1;
+  height:18px;
+  line-height:18px;
 }
-.ticker span{
-  font-weight:800;
-}
+
 .ticker ul{
   display:flex;
   gap:48px;
@@ -121,17 +122,15 @@ body{
   white-space:nowrap;
   animation:ticker-scroll 220s linear infinite;
 }
+
 .ticker li{
   font-size:12px;
   white-space:nowrap;
 }
+
 @keyframes ticker-scroll{
   from{transform:translateX(0)}
   to{transform:translateX(-50%)}
-}
-.tools{
-  display:flex;
-  gap:8px;
 }
 
 /* ================= NAVBAR ================= */
@@ -141,48 +140,22 @@ body{
   position:relative;
   z-index:40;
 }
-.nav-list{
-  display:flex;
-  justify-content:center;
-  gap:4px;
-  padding:6px;
-  list-style:none;
-  margin:0;
-}
-.nav-item{position:relative}
-.nav-btn{
-  background:none;
-  border:none;
-  color:#fff;
-  padding:8px 10px;
-  border-radius:10px;
-  cursor:pointer;
-}
-.dropdown{
-  position:absolute;
-  top:100%;
-  left:0;
-  background:#fff;
-  color:#111;
-  border-radius:12px;
-  box-shadow:var(--shadow);
-  padding:8px;
-  display:none;
-}
-.nav-item.open .dropdown{display:block}
 
 /* ================= MAIN ================= */
 .main{
   max-width:1200px;
-  margin:18px auto;
+  margin:24px auto;
   padding:0 12px;
   position:relative;
   z-index:1;
 }
+
+/* ================= CARDS ================= */
 .cards{
   display:grid;
   gap:12px;
 }
+
 .cards.three{grid-template-columns:repeat(3,1fr)}
 .cards.two{grid-template-columns:repeat(2,1fr)}
 
@@ -192,34 +165,17 @@ body{
   overflow:hidden;
   box-shadow:var(--shadow);
 }
-.card .media{
+
+.card .media,
+.media-placeholder{
   position:relative;
   height:220px;
 }
-.card .media img,
-.media-placeholder{
+
+.card .media img{
   width:100%;
   height:100%;
   object-fit:cover;
-}
-.card .card-body{
-  padding:14px;
-}
-.badge{
-  position:absolute;
-  top:10px;
-  left:10px;
-  background:#ef5350;
-  color:#fff;
-  padding:6px 10px;
-  border-radius:999px;
-  font-size:12px;
-  z-index:3;
-}
-.badge.time{
-  right:10px;
-  left:auto;
-  background:#333;
 }
 
 /* ================= PLACEHOLDERS ================= */
@@ -229,11 +185,12 @@ body{
   justify-content:center;
   background:#f2f2f2;
 }
+
 .media-placeholder-inner{
   border:4px solid var(--maroon);
   border-radius:14px;
-  padding:20px;
-  font-size:32px;
+  padding:18px;
+  font-size:30px;
   font-weight:700;
   text-align:center;
   color:var(--maroon);
@@ -259,62 +216,3 @@ body{
   .cards.three{grid-template-columns:1fr}
   .logo{width:56px;height:56px}
 }
-/* ================== HARD FIX: STACKING & FLOW ================== */
-
-/* Ensure header does not cover bars */
-.site-header {
-  position: relative;
-  z-index: 10;
-}
-
-/* Force clocks + weather above header */
-.bar {
-  position: relative;
-  z-index: 20;
-}
-
-/* Isolate ticker animation from layout */
-.ticker-wrap {
-  position: relative;
-  z-index: 30;
-  overflow: hidden;
-}
-
-/* Lock ticker height so text cannot bleed */
-.ticker {
-  height: 22px;
-  line-height: 22px;
-}
-
-/* Prevent animated text from escaping container */
-.ticker ul {
-  align-items: center;
-}
-
-/* Add guaranteed spacing after ticker */
-.ticker-wrap::after {
-  content: "";
-  display: block;
-  height: 8px;
-}
-
-/* Force main content to start below bars */
-.main {
-  position: relative;
-  z-index: 1;
-  margin-top: 16px;
-}
-
-/* Lock media height so placeholders cannot collapse */
-.card .media,
-.media-placeholder {
-  min-height: 220px;
-}
-
-/* Absolute safety: nothing overlaps cards */
-.cards,
-.section-rail {
-  position: relative;
-  z-index: 1;
-}
-
