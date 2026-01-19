@@ -115,4 +115,42 @@ input[type="email"], input[type="text"], textarea, input[type="file"]{ width:100
   border-color: #1f7a4d;
   color: #1f7a4d;
 }
+/* ================= CRITICAL RESTORE FIX ================= */
+
+/* Ensure clock + calendar bar is visible */
+.bar.clocks-line,
+.bar.weather-line {
+  position: relative;
+  z-index: 50;
+  display: block;
+}
+
+/* Prevent ticker from overlapping bars */
+.ticker-wrap {
+  z-index: 40;
+}
+
+/* Lock media container height so placeholders work */
+.card .media {
+  min-height: 220px;
+  display: block;
+}
+
+/* Ensure placeholder fills media area */
+.card .media .media-placeholder {
+  width: 100%;
+  height: 100%;
+}
+
+/* Prevent card body from overlapping media */
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card .card-body {
+  position: relative;
+  z-index: 1;
+}
+
 
