@@ -1,56 +1,160 @@
-About.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <base href="./" />
-  <title>About Us | THE MIRROR JAMMU KASHMIR</title>
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="./">
+  <title>THE MIRROR JAMMU KASHMIR</title>
+  <meta name="description" content="The Mirror Jammu Kashmir — Champion justice & amplify the voices of the unheard.">
+  <link rel="preconnect" href="https://api.open-meteo.com">
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
-<body class="theme-maroon">
-  <header class="site-header">
-    <div class="header-row">
-      <img src="assets/logo.png" alt="Logo" class="logo" loading="eager" decoding="async"
-           onerror="this.onerror=null;this.src='logo.png';" />
-      <h1 class="site-title">THE MIRROR JAMMU KASHMIR</h1>
-      <img src="assets/logo.png" alt="Logo" class="logo" loading="eager" decoding="async"
-           onerror="this.onerror=null;this.src='logo.png';" />
-    </div>
-    <div class="subheading">CHAMPION JUSTICE &amp; AMPLIFY THE VOICES OF THE UNHEARD. REVEALING THE TRUTH BEYOND BORDERS</div>
-  </header>
 
-  <main class="article-wrap">
-    <div class="article-top">
-      <a class="article-back" href="index.html">← Back to Home</a>
-    </div>
+<body class="theme-maroon" id="top">
 
-    <article class="article-card">
-      <div class="page-hero-row">
-        <div class="page-text">
-          <h1 class="article-title">About Us</h1>
-          <p class="article-p">The Mirror Jammu Kashmir is an independent digital media platform focused on verified reporting, human rights, and public accountability.</p>
-          <p class="article-p">We publish news, analysis, editorials, and documentary style coverage from Jammu and Kashmir and related regions. We work in the language of facts and international law, with respect for lived realities.</p>
-          <p class="article-p">If you have news, documents, photos, or urgent updates, contact us at <a href="mailto:themirrorjk@gmail.com">themirrorjk@gmail.com</a> or +41 783 13 12 13.</p>
-        </div>
-        <aside class="page-side" aria-label="About logo">
-          <img class="side-logo" src="assets/logo.png" alt="The Mirror Jammu Kashmir logo"
-               onerror="this.onerror=null;this.src='logo.png';" />
-        </aside>
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="header-row">
+    <img src="assets/logo.png" class="logo" alt="Logo" onerror="this.src='logo.png'">
+    <h1 class="site-title">THE MIRROR JAMMU KASHMIR</h1>
+    <img src="assets/logo.png" class="logo" alt="Logo" onerror="this.src='logo.png'">
+  </div>
+  <div class="subheading">
+    CHAMPION JUSTICE &amp; AMPLIFY THE VOICES OF THE UNHEARD. REVEALING THE TRUTH BEYOND BORDERS
+  </div>
+</header>
+
+<!-- ================= CLOCKS ================= -->
+<section class="bar clocks-line">
+  <div class="row tight nowrap">
+    <div id="clock-cest" class="chip tiny">🕒 <span>Loading…</span></div>
+    <div id="cal-hijri" class="chip tiny" data-offset="-1">📅 <span>Hijri…</span></div>
+    <div id="cal-hindi" class="chip tiny">📅 <span>VS…</span></div>
+    <div id="tz-ist" class="chip tiny">🕒 IST (Jammu–Kashmir–Ladakh): <span>—</span></div>
+    <div id="tz-pkt" class="chip tiny">🕒 PKT (Gilgit–Baltistan–Azad Kashmir): <span>—</span></div>
+  </div>
+</section>
+
+<!-- ================= WEATHER ================= -->
+<section class="bar weather-line">
+  <div class="row nowrap super-tight" id="weather-bar">
+    <span data-city="Zurich"></span>
+    <span data-city="Jammu"></span>
+    <span data-city="Kashmir"></span>
+    <span data-city="Ladakh"></span>
+    <span data-city="Rawalakot"></span>
+    <span data-city="Gilgit"></span>
+    <span data-city="Baltistan"></span>
+    <span data-city="Muzaffarabad"></span>
+  </div>
+</section>
+
+<!-- ================= TICKER ================= -->
+<section class="ticker-wrap">
+  <div class="ticker">
+    <span class="ticker-label">BREAKING</span>
+    <ul id="ticker-items">
+      <li>THE MIRROR JAMMU KASHMIR — INDEPENDENT DIGITAL MEDIA PLATFORM</li>
+      <li>WE CHALLENGE SILENCE, EXPOSE INJUSTICE, AND AMPLIFY SUPPRESSED VOICES</li>
+      <li>SUBMIT YOUR EDITORIALS AND VLOGS VIA THE CONTACT FORM BELOW</li>
+    </ul>
+  </div>
+
+  <div class="tools">
+    <select id="language-select">
+      <option selected>English</option>
+      <option>Urdu</option>
+      <option>German</option>
+      <option>French</option>
+    </select>
+    <form class="search" onsubmit="event.preventDefault(); fakeSearch();">
+      <input id="search-input" type="search" placeholder="Search…">
+      <button type="submit">🔍</button>
+    </form>
+  </div>
+</section>
+
+<!-- ================= NAVIGATION ================= -->
+<nav class="navbar">
+  <button class="hamburger" id="hamburger">☰ Menu</button>
+
+  <ul class="nav-list" id="nav-list">
+    <li class="nav-item has-sub">
+      <button class="nav-btn">🏠 Home</button>
+      <div class="dropdown">
+        <a href="about.html">About</a>
+        <a href="chief-editor.html">Chief Editor</a>
+        <a href="contact.html">Contact</a>
       </div>
+    </li>
 
-      <div class="page-actions" aria-label="Page actions">
-        <button class="action-btn" data-action="copy">🔗 Copy Link</button>
-        <button class="action-btn" data-action="like">❤️ Like <span class="like-count" data-like-count>0</span></button>
-        <button class="action-btn primary" data-action="share">📣 Share</button>
-      </div>
-    </article>
-  </main>
+    <li class="nav-item"><a class="nav-btn" href="#blog">📝 Blog</a></li>
+    <li class="nav-item"><a class="nav-btn" href="#vlog">🎥 Vlog</a></li>
+    <li class="nav-item"><a class="nav-btn" href="#epaper">📰 E-Paper</a></li>
+    <li class="nav-item"><a class="nav-btn" href="#international">🌐 International</a></li>
+    <li class="nav-item"><a class="nav-btn" href="#human-rights">🕊️ Human Rights</a></li>
+  </ul>
+</nav>
 
-  <script src="script.js?v=7"></script>
-  <script>
-    if (window.initLikeButton) window.initLikeButton("page:about");
-    if (window.initPageActions) window.initPageActions();
-  </script>
+<!-- ================= MAIN ================= -->
+<main class="main">
+
+  <section id="blog" class="card-col">
+    <h2>📝 Latest Articles</h2>
+    <div class="cards three">
+      <article class="card post"></article>
+      <article class="card post"></article>
+      <article class="card post"></article>
+    </div>
+  </section>
+
+  <section id="vlog" class="vlogs card">
+    <h2>Video Reports &amp; Vlogs</h2>
+  </section>
+
+  <section id="epaper" class="epaper card">
+    <h2>📰 E-Paper Upload</h2>
+    <form name="epaper" method="POST" data-netlify="true">
+      <input type="file" name="file" accept=".pdf">
+      <button class="btn" type="submit">Upload</button>
+    </form>
+  </section>
+
+  <section id="contact" class="contact-wrap">
+    <div class="contact card">
+      <h2>✉️ Contact</h2>
+      <p>Email: <a href="mailto:themirrorjk@gmail.com">themirrorjk@gmail.com</a></p>
+      <button class="btn" id="open-contact" type="button">Open Contact Form</button>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="social">
+    <a aria-label="Twitter">𝕏</a>
+    <a aria-label="Instagram">📸</a>
+    <a aria-label="YouTube">▶️</a>
+    <a aria-label="Facebook">📘</a>
+  </div>
+  <p>© <span id="year"></span> THE MIRROR JAMMU KASHMIR</p>
+</footer>
+
+<!-- ================= CONTACT MODAL ================= -->
+<dialog id="contact-modal" class="modal">
+  <form name="contact" method="POST" data-netlify="true" class="modal-card">
+    <h3>Contact Form</h3>
+    <label>Name <input type="text" name="name" required></label>
+    <label>Email <input type="email" name="email" required></label>
+    <label>Message <textarea name="message" rows="4" required></textarea></label>
+    <div class="modal-actions">
+      <button type="submit" class="btn">Submit</button>
+      <button type="button" class="btn outline" id="close-contact">Exit</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="script.js?v=4"></script>
 </body>
 </html>
