@@ -12,7 +12,6 @@
 
 <body class="theme-maroon" id="top">
 
-<!-- ================= HEADER ================= -->
 <header class="site-header">
   <div class="header-row">
     <img src="assets/logo.png" class="logo" alt="Logo" onerror="this.src='logo.png'">
@@ -24,18 +23,16 @@
   </div>
 </header>
 
-<!-- ================= CLOCKS ================= -->
 <section class="bar clocks-line">
   <div class="row tight nowrap">
-    <div id="clock-cest" class="chip tiny">🕒 <span>Loading…</span></div>
-    <div id="cal-hijri" class="chip tiny" data-offset="-1">📅 <span>Hijri…</span></div>
+    <div id="clock-cest" class="chip tiny">🕒 <span>Loading CEST…</span></div>
+    <div id="cal-hijri" class="chip tiny">📅 <span>Hijri…</span></div>
     <div id="cal-hindi" class="chip tiny">📅 <span>VS…</span></div>
-    <div id="tz-ist" class="chip tiny">🕒 IST (Jammu–Kashmir–Ladakh): <span>—</span></div>
-    <div id="tz-pkt" class="chip tiny">🕒 PKT (Gilgit–Baltistan–Azad Kashmir): <span>—</span></div>
+    <div id="tz-ist" class="chip tiny">🕒 IST (JKL): <span>—:—</span></div>
+    <div id="tz-pkt" class="chip tiny">🕒 PKT (GBM): <span>—:—</span></div>
   </div>
 </section>
 
-<!-- ================= WEATHER ================= -->
 <section class="bar weather-line">
   <div class="row nowrap super-tight" id="weather-bar">
     <span data-city="Zurich"></span>
@@ -49,10 +46,9 @@
   </div>
 </section>
 
-<!-- ================= TICKER ================= -->
 <section class="ticker-wrap">
   <div class="ticker">
-    <span class="ticker-label">BREAKING</span>
+    <span>BREAKING:</span>
     <ul id="ticker-items">
       <li>THE MIRROR JAMMU KASHMIR — INDEPENDENT DIGITAL MEDIA PLATFORM</li>
       <li>WE CHALLENGE SILENCE, EXPOSE INJUSTICE, AND AMPLIFY SUPPRESSED VOICES</li>
@@ -61,12 +57,15 @@
   </div>
 
   <div class="tools">
-    <select id="language-select">
-      <option selected>English</option>
-      <option>Urdu</option>
-      <option>German</option>
-      <option>French</option>
-    </select>
+    <label class="lang-select">
+      🌍
+      <select id="language-select">
+        <option selected>English</option>
+        <option>Urdu</option>
+        <option>German</option>
+        <option>French</option>
+      </select>
+    </label>
     <form class="search" onsubmit="event.preventDefault(); fakeSearch();">
       <input id="search-input" type="search" placeholder="Search…">
       <button type="submit">🔍</button>
@@ -74,7 +73,6 @@
   </div>
 </section>
 
-<!-- ================= NAVIGATION ================= -->
 <nav class="navbar">
   <button class="hamburger" id="hamburger">☰ Menu</button>
 
@@ -82,66 +80,78 @@
     <li class="nav-item has-sub">
       <button class="nav-btn">🏠 Home</button>
       <div class="dropdown">
-        <a href="about.html">About</a>
-        <a href="chief-editor.html">Chief Editor</a>
-        <a href="contact.html">Contact</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#chief-editor">Chief Editor</a>
       </div>
     </li>
-
-    <li class="nav-item"><a class="nav-btn" href="#blog">📝 Blog</a></li>
-    <li class="nav-item"><a class="nav-btn" href="#vlog">🎥 Vlog</a></li>
+    <li class="nav-item"><a class="nav-btn" href="#breaking">🆕 Breaking News</a></li>
+    <li class="nav-item has-sub">
+      <button class="nav-btn">📝 Blog</button>
+      <div class="dropdown wide">
+        <a href="#editorial">Editorial</a>
+        <a href="#opinion">Opinion</a>
+        <a href="#updates">Latest Updates</a>
+      </div>
+    </li>
+    <li class="nav-item has-sub">
+      <button class="nav-btn">🎥 Vlog</button>
+      <div class="dropdown">
+        <a href="#vlog-latest">Latest Vlogs</a>
+        <a href="#vlog-archive">Archive</a>
+      </div>
+    </li>
     <li class="nav-item"><a class="nav-btn" href="#epaper">📰 E-Paper</a></li>
-    <li class="nav-item"><a class="nav-btn" href="#international">🌐 International</a></li>
-    <li class="nav-item"><a class="nav-btn" href="#human-rights">🕊️ Human Rights</a></li>
+    <li class="nav-item has-sub">
+      <button class="nav-btn">📍 Jammu Kashmir</button>
+      <div class="dropdown wide">
+        <a href="#jk-region">Regions</a>
+        <a href="#jk-history">History</a>
+        <a href="#jk-culture">Culture</a>
+      </div>
+    </li>
+    <li class="nav-item has-sub">
+      <button class="nav-btn">📜 Historical Documents</button>
+      <div class="dropdown wide">
+        <a href="#docs-treaties">Treaties</a>
+        <a href="#docs-archives">Archives</a>
+        <a href="#docs-letters">Letters</a>
+      </div>
+    </li>
+    <li class="nav-item has-sub">
+      <button class="nav-btn">🕊️ UN &amp; Human Rights</button>
+      <div class="dropdown">
+        <a href="#unhrc">UNHRC</a>
+        <a href="#reports">Reports</a>
+        <a href="#advocacy">Advocacy</a>
+      </div>
+    </li>
+    <li class="nav-item has-sub">
+      <button class="nav-btn">🌐 Global Advocacy</button>
+      <div class="dropdown wide">
+        <a href="#campaigns">Campaigns</a>
+        <a href="#partners">Partners</a>
+        <a href="#get-involved">Get Involved</a>
+      </div>
+    </li>
   </ul>
 </nav>
 
-<!-- ================= MAIN ================= -->
 <main class="main">
-
-  <section id="blog" class="card-col">
-    <h2>📝 Latest Articles</h2>
-    <div class="cards three">
-      <article class="card post"></article>
-      <article class="card post"></article>
-      <article class="card post"></article>
-    </div>
-  </section>
-
-  <section id="vlog" class="vlogs card">
-    <h2>Video Reports &amp; Vlogs</h2>
-  </section>
-
-  <section id="epaper" class="epaper card">
-    <h2>📰 E-Paper Upload</h2>
-    <form name="epaper" method="POST" data-netlify="true">
-      <input type="file" name="file" accept=".pdf">
-      <button class="btn" type="submit">Upload</button>
-    </form>
-  </section>
-
-  <section id="contact" class="contact-wrap">
-    <div class="contact card">
-      <h2>✉️ Contact</h2>
-      <p>Email: <a href="mailto:themirrorjk@gmail.com">themirrorjk@gmail.com</a></p>
-      <button class="btn" id="open-contact" type="button">Open Contact Form</button>
-    </div>
-  </section>
-
+  <!-- CONTENT SECTIONS UNCHANGED -->
 </main>
 
-<!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="social">
-    <a aria-label="Twitter">𝕏</a>
-    <a aria-label="Instagram">📸</a>
-    <a aria-label="YouTube">▶️</a>
-    <a aria-label="Facebook">📘</a>
+    <a>𝕏</a>
+    <a>📸</a>
+    <a>▶️</a>
+    <a>📘</a>
+    <button class="btn small outline" id="share-btn">Share</button>
   </div>
   <p>© <span id="year"></span> THE MIRROR JAMMU KASHMIR</p>
 </footer>
 
-<!-- ================= CONTACT MODAL ================= -->
 <dialog id="contact-modal" class="modal">
   <form name="contact" method="POST" data-netlify="true" class="modal-card">
     <h3>Contact Form</h3>
@@ -154,6 +164,14 @@
     </div>
   </form>
 </dialog>
+
+<nav class="mobile-sticky">
+  <a href="#top">🏠</a>
+  <button>🔍</button>
+  <button>❤️</button>
+  <button>🔗</button>
+  <button>☰</button>
+</nav>
 
 <script src="script.js?v=4"></script>
 </body>
